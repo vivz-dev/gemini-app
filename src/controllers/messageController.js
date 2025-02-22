@@ -3,17 +3,15 @@ const util = require("util");
 
 const createNewMsg = async (req, res) => {
     if (!req.body) {
-        return res.status(400).json({ error: "El cuerpo de la solicitud es inválido" });
+        return res.status(400).json({ error: "El cuerpo de la solicitud es inválido. Body not found" });
     }
-    
-    const {text} = req.body;
+    const {text} = req.body.texto;
+    if (!text) {
+        return res.status(400).json({ error: "El cuerpo de la solicitud es inválido. Text not found." });
+    }
     console.log(`texto: ${text}`)
-
-    // const newMessage = {
-    //     text: body.text
-    // }
     try {
-        const messageSent = await messageService.createMsg(body, res)
+        const messageSent = await messageService.createMsg(text, res)
         res.send({ status: "OK", message: messageSent });
     } catch (error) {
         console.log(error)
