@@ -11,7 +11,7 @@ const createNewMsg = (req, res) => {
         const messageSent = messageService.createMsg(newMessage)
         res.status(201).send({ status: "OK", data: messageSent });
     } catch (error) {
-        
+        console.log(error)
     }
     
 }
