@@ -29,8 +29,3 @@ app.post(GEMINI_ENDPOINT, async (req, res) => {
         res.status(500).json({ error: error.response ? error.response.data : error.message }); ///a
     }
 });
-
-app.listen(PORT, () => {
-    console.log(`Servidor corriendo en ${PORT}`);
-});
-
