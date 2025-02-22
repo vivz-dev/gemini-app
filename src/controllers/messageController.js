@@ -2,8 +2,12 @@ const messageService = require("../services/messageService")
 const util = require("util");
 
 const createNewMsg = async (req, res) => {
-    const {body} = req.body;
-    console.log(`body: ${body.text}`)
+    if (!body || !body.text) {
+        return res.status(400).json({ error: "El cuerpo de la solicitud es inválido" });
+    }
+    
+    const {text} = req.body;
+    console.log(`texto: ${text}`)
 
     // const newMessage = {
     //     text: body.text
