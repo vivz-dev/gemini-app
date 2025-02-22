@@ -8,7 +8,7 @@ const app = require("express")();
 const PORT = process.env.PORT
 const GEMINI_API_URL = process.env.GEMINI_API_URL
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY
-const GEMINI_ENDPOINT = str1.concat(GEMINI_API_URL, GEMINI_API_KEY);
+const GEMINI_ENDPOINT = GEMINI_API_URL.concat(GEMINI_API_KEY);
 
 // app.use(express.json()); // Middleware para parsear JSON
 
