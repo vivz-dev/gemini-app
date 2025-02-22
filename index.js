@@ -8,7 +8,7 @@ const app = require("express")();
 const PORT = process.env.PORT
 const GEMINI_API = process.env.GEMINI_API
 
-app.use(express.json()); // Middleware para parsear JSON
+// app.use(express.json()); // Middleware para parsear JSON
 
 app.post(GEMINI_API, async (req, res) => {
     try {
