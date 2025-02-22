@@ -6,10 +6,9 @@ const createNewMsg = (req, res) => {
     // const newMessage = {
     //     text: body.text
     // }
-
     try {
         const messageSent = messageService.createMsg(body, res)
-        res.send({data: messageSent });
+        res.send({ status: "OK", message: newMessage });
     } catch (error) {
         console.log(error)
     }
