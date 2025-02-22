@@ -9,7 +9,7 @@ async function geminiAPI(newMessage) {
     const result = await model.generateContent(newMessage);
     return result.response.text()
 }
-
+//≈ß
 module.exports = {
     geminiAPI
 }
