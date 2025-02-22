@@ -6,11 +6,11 @@ const app = require("express")();
 
 //const
 const PORT = process.env.PORT
-const GEMINI_API = process.env.GEMINI_API
+const GEMINI_API_URL = process.env.GEMINI_API_URL
 
 // app.use(express.json()); // Middleware para parsear JSON
 
-app.post(GEMINI_API, async (req, res) => {
+app.post(GEMINI_API_URL, async (req, res) => {
     try {
         const { prompt } = req.body; // Recibir el prompt del cliente
 
