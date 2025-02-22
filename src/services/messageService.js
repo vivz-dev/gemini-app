@@ -2,7 +2,7 @@ const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 
 const createMsg = async (newMessage, res) => {
-    console.log(`newmessage -> ${newMessage}`)
+    // console.log(`newmessage -> ${newMessage}`)
     const respuestaGemini = await geminiAPI(newMessage);
     console.log(`respuesta GEMINI ${respuestaGemini}`)
     // res.send(`enviando peticion a GEMINI ${newMessage}`)

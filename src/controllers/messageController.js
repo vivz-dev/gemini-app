@@ -3,8 +3,7 @@ const util = require("util");
 
 const createNewMsg = async (req, res) => {
     const {body} = req.body;
-    console.log(util.inspect(req, { depth: null, colors: true }));
-    console.log(`mensaje del usuario: ${body.text}`)
+    console.log(`body: ${body.text}`)
 
     // const newMessage = {
     //     text: body.text
