@@ -1,6 +1,4 @@
 require('dotenv').config()
-const http = require("http")
-const readline = require("readline");
 const axios = require("axios");
 const app = require("express")();
 
@@ -8,7 +6,7 @@ const app = require("express")();
 const PORT = process.env.PORT
 const GEMINI_API_URL = process.env.GEMINI_API_URL
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY
-const GEMINI_ENDPOINT = str(GEMINI_API_URL).concat(GEMINI_API_KEY);
+const GEMINI_ENDPOINT = new String(GEMINI_API_URL).concat(GEMINI_API_KEY);
 
 // app.use(express.json()); // Middleware para parsear JSON
 
