@@ -1,0 +1,15 @@
+{
+  "name": "gemini-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/vivz-dev/gemini-app.git",
+  "author": "Viviana Vera Falconí <vivianavera03@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts" : {
+    "dev": "nodemon index.js"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
