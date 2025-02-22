@@ -26,7 +26,7 @@ app.post(GEMINI_API, async (req, res) => {
 
         res.json(response.data); // Enviar respuesta de la API de Gemini
     } catch (error) {
-        res.status(500).json({ error: error.response ? error.response.data : error.message });
+        res.status(500).json({ error: error.response ? error.response.data : error.message }); ///a
     }
 });
 
