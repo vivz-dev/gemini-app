@@ -5,7 +5,7 @@ const createNewMsg = async (req, res) => {
     if (!req.body) {
         return res.status(400).json({ error: "El cuerpo de la solicitud es inválido. Body not found" });
     }
-    const {text} = req.body.texto;
+    const {text} = req.body.text;
     if (!text) {
         return res.status(400).json({ error: "El cuerpo de la solicitud es inválido. Text not found." });
     }
