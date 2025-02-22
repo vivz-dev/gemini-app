@@ -2,7 +2,7 @@ require('dotenv').config()
 const http = require("http")
 const readline = require("readline");
 const axios = require("axios");
-const app = require("express")
+const app = require("express")();
 
 //const
 const PORT = process.env.PORT
