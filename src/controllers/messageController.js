@@ -1,7 +1,7 @@
 const messageService = require("../services/messageService")
 
 const createNewMsg = async (req, res) => {
-    const body = req;
+    const body = JSON.stringify(req);
     console.log(`body: ${body}`)
 
     // const newMessage = {
