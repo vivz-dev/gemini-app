@@ -6,7 +6,7 @@ const sendMetaMessage = async (message, business_phone_number_id, res) =>{
 
     const AIresponse = await gemini.geminiAPI(message.text.body)
 
-    console.log(AIresponse)
+    // console.log(AIresponse)
     await fetch(
         META_ACTUAL_URL,
         {
@@ -19,7 +19,7 @@ const sendMetaMessage = async (message, business_phone_number_id, res) =>{
             messaging_product: "whatsapp",
             to: message.from,
             type: "text",
-            text: { body: "Echo: " + message.text.body },
+            text: { body: AIresponse },
             context: {
                 message_id: message.id, // shows the message as a reply to the original user message
             },
