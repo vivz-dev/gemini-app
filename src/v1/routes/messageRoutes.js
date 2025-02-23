@@ -3,7 +3,7 @@ const router = express.Router();
 const messageController = require("../../controllers/messageController")
 
 router
-    .route('/')
-    .post(messageController.createNewMsg)
+    .post('/',messageController.createNewMsg)
+    .post('/ws/',messageController.sendWhatsappMessage)
 
 module.exports = router;
