@@ -15,7 +15,7 @@ const sendMetaMessage = async (message, business_phone_number_id, res) =>{
             "Authorization": `Bearer ${tokens.META_TOKEN}`,
             "Content-Type": "application/json"
         },
-        data: {
+        body: JSON.stringify({
             messaging_product: "whatsapp",
             to: message.from,
             type: "text",
@@ -23,7 +23,7 @@ const sendMetaMessage = async (message, business_phone_number_id, res) =>{
             context: {
                 message_id: message.id, // shows the message as a reply to the original user message
             },
-        }
+        })
         }
     );
 
@@ -34,11 +34,11 @@ const sendMetaMessage = async (message, business_phone_number_id, res) =>{
             headers:{
                 "Authorization": `Bearer ${tokens.META_TOKEN}`
             },
-            data: {
+            body: JSON.stringify({
                 messaging_product: "whatsapp",
                 status: "read",
                 message_id: message.id,
-            }
+            })
         }
     )
 }
