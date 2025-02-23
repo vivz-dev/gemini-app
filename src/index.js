@@ -6,7 +6,7 @@ const app = express()
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json()); // Middleware para parsear JSON
-app.use("/api/v1", v1Router)
+app.use("/", v1Router)
 
 app.listen(PORT, ()=>{
     console.log(`Servidor activo en puerto: ${PORT}`)
