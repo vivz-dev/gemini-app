@@ -42,11 +42,14 @@ const sendWhatsappMessage = async (req, res) => {
 }
 
 const webhookListener = async (req, res) =>{
+    console.log("LISTENER")
     const message = req.body.entry?.[0]?.changes[0]?.value?.messages?.[0];
+    console.log("LISTENE3")
     switch (message?.type) {
         case "text":
             const business_phone_number_id = req.body.entry?.[0].changes?.[0].value?.metadata?.phone_number_id;
             const reply = await metaService.sendMetaMessage(message, business_phone_number_id)
+            console.log("LISTENER3")
             break;
         default:
             break;
@@ -56,10 +59,13 @@ const webhookListener = async (req, res) =>{
 }
 
 const webHookReceiver = async (req, res) => {
+    console.log("RECEIVER")
     const mode = req.query["hub.mode"];
     const token = req.query["hub.verify_token"];
     const challenge = req.query["hub.challenge"];
+    console.log("RECEIVER2")
     if (mode === "subscribe" && token === tokens.WEBHOOK_VERIFY_TOKEN) {
+        console.log("RECEIVER3")
         // respond with 200 OK and challenge token from the request
         res.status(200).send(challenge);
         console.log("Webhook verified successfully!");
