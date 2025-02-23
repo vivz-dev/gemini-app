@@ -54,8 +54,6 @@ const webhookListener = async (req, res) =>{
         default:
             break;
     }
-
-    
 }
 
 const webHookReceiver = async (req, res) => {

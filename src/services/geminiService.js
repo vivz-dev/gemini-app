@@ -7,7 +7,7 @@ const tokens = require("../utils/tokens")
 const genAI = new GoogleGenerativeAI(tokens.GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({
     model: "gemini-1.5-flash",
-    systemInstruction: "Eres un asistente que habla español. Ayuda al usuario en lo que requiera. Usa lenguaje amigable y pocos emojis.",
+    systemInstruction: "Eres un asistente que habla español. Ayuda al usuario en lo que requiera. Usa lenguaje amigable, juvenil y emojis.",
 });
 
 
