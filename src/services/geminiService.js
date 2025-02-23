@@ -2,8 +2,9 @@ const { GoogleGenerativeAI } = require("@google/generative-ai");
 const { Buffer } = require("buffer");
 const fs = require("fs");
 const path = require("path");
+const tokens = require("../utils/tokens")
 
-const genAI = new GoogleGenerativeAI("AIzaSyAcYcGPtxzQPx_KfNic06QRXBjIfYouTRE");
+const genAI = new GoogleGenerativeAI(tokens.GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({
     model: "gemini-1.5-flash",
     systemInstruction: "Eres un asistente que habla español. Ayuda al usuario en lo que requiera. Usa lenguaje amigable y pocos emojis.",

@@ -1,7 +1,5 @@
 const { geminiService, geminiAPI } = require("./geminiService")
-
-META_URL = "https://graph.facebook.com/v22.0/546997201839007/messages"
-META_TOKEN = "EAAYLhmdQMA4BOxSZBOJaJZCyRWKNSIaXKIlx2g5fqu4KSqyIYg0zHod7zIo3KKtR6ZCRJUr57pzZCBdVcQ5OXncYJPpAMuL1tY6FeUxlkZBQv7vaXGoZBpbjtOZBE7DI9Tj5yhBz0x2azj2dzt1OZBWoPeLFnWeqdAtPvhnYUCqX0bDFY7RmxPNvFZCPQP7gWzz1zY4XpzxicIUZA2n96gz7CvvdQ51v0ZD"
+const tokens = require("../utils/tokens")
 
 const sendMessage = async (newMessage, res) => {
     // const respuestaGemini = await geminiService.readPDF(newMessage);
@@ -14,10 +12,10 @@ const sendMessage = async (newMessage, res) => {
         "text": { "body": IAResponse,}
     }
 
-    const respuesta = await fetch(META_URL, {
+    const respuesta = await fetch(tokens.META_URL, {
         method: "POST",
         headers: {
-            "Authorization": `Bearer ${META_TOKEN}`,
+            "Authorization": `Bearer ${tokens.META_TOKEN}`,
             "Content-Type": "application/json",
         },
         body: JSON.stringify(mensaje),
