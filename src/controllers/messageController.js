@@ -42,14 +42,13 @@ const sendWhatsappMessage = async (req, res) => {
 }
 
 const webhookListener = async (req, res) =>{
-    console.log("LISTENER")
+    console.log("Incoming webhook message:", JSON.stringify(req.body, null, 2));
     const message = req.body.entry?.[0]?.changes[0]?.value?.messages?.[0];
-    console.log("LISTENE3")
     switch (message?.type) {
         case "text":
+            console.log("RECIBIDO! TYPE TEXT")
             const business_phone_number_id = req.body.entry?.[0].changes?.[0].value?.metadata?.phone_number_id;
-            const reply = await metaService.sendMetaMessage(message, business_phone_number_id)
-            console.log("LISTENER3")
+            await metaService.sendMetaMessage(message, business_phone_number_id)
             break;
         default:
             break;
