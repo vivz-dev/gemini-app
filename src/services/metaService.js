@@ -5,6 +5,8 @@ const sendMetaMessage = async (message, business_phone_number_id, res) =>{
     META_ACTUAL_URL = `https://graph.facebook.com/${tokens.GRAPH_VERSION}/${business_phone_number_id}/messages`
 
     const AIresponse = await gemini.geminiAPI(message.text.body)
+
+    console.log(AIresponse)
     await fetch(
         META_ACTUAL_URL,
         {
@@ -21,7 +23,7 @@ const sendMetaMessage = async (message, business_phone_number_id, res) =>{
             context: {
                 message_id: message.id, // shows the message as a reply to the original user message
             },
-            }
+        }
         }
     );
 
