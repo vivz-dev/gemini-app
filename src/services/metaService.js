@@ -5,17 +5,19 @@ const sendMetaMessage = async (message, business_phone_number_id, res) =>{
     META_ACTUAL_URL = `https://graph.facebook.com/${tokens.GRAPH_VERSION}/${business_phone_number_id}/messages`
 
     const AIresponse = await gemini.geminiAPI(message.text.body)
-    const respuesta = await fetch(
+    await fetch(
         META_ACTUAL_URL,
         {
         method: "POST",
         headers: {
             "Authorization": `Bearer ${tokens.META_TOKEN}`,
+            "Content-Type": "application/json"
         },
         data: {
             messaging_product: "whatsapp",
             to: message.from,
-            text: { body: AIresponse },
+            type: "text",
+            text: { body: "Echo: " + message.text.body },
             context: {
                 message_id: message.id, // shows the message as a reply to the original user message
             },
@@ -23,7 +25,7 @@ const sendMetaMessage = async (message, business_phone_number_id, res) =>{
         }
     );
 
-    const readMsg = await fetch(
+    await fetch(
         META_ACTUAL_URL,
         {
             method: "POST",
