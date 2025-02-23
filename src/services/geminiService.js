@@ -13,7 +13,7 @@ const model = genAI.getGenerativeModel({
 
 async function geminiAPI(newMessage) {
     const result = await model.generateContent(newMessage);
-    console.log(result.response)
+    console.log(`MENSAJE DE LA IA: ${result.response.text()}`)
     return result.response.text()
 }
 

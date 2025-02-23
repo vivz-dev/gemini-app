@@ -42,7 +42,7 @@ const sendWhatsappMessage = async (req, res) => {
 }
 
 const webhookListener = async (req, res) =>{
-    console.log("Incoming webhook message:", JSON.stringify(req.body, null, 2));
+    console.log("Incoming webhook message");
     const message = req.body.entry?.[0]?.changes[0]?.value?.messages?.[0];
     switch (message?.type) {
         case "text":
