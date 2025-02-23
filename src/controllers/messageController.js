@@ -49,12 +49,13 @@ const webhookListener = async (req, res) =>{
             console.log("RECIBIDO! TYPE TEXT")
             const business_phone_number_id = req.body.entry?.[0].changes?.[0].value?.metadata?.phone_number_id;
             await metaService.sendMetaMessage(message, business_phone_number_id)
+            res.sendStatus(200);
             break;
         default:
             break;
     }
 
-    res.sendStatus(200);
+    
 }
 
 const webHookReceiver = async (req, res) => {
